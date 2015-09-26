@@ -8,8 +8,9 @@ body{
 .main{
 	margin-top: 20px;
 	background-color:rgba(255,255,255,0.9);
-	height:90%;
+	min-height:90%;
 }
+
 table.numbered-equation { 
 	width:99%;  
 	text-align: center; 
