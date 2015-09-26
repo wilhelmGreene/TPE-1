@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Bootstrap -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="main col-md-8 col-md-offset-2">
+			<div>
+				<h1><a href="../main.html">Теорія планування експерименту</a></h1>
+				<legend>
+				<div class="row">
+				<div class="col-md-8"><h3>Лабораторна робота №1</h3></div>
+				<div class="col-md-4" style="text-align:right;"><h4>[<a data-toggle="modal" data-target="#myModal">додаткові параметри</a>]</h4></div>
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h2 class="modal-title" id="myModalLabel">Обмеження випадкових чисел</h2>
+							</div>
+							<div class="col-md-offset-2">
+								<input type="text" class="inputCoef" id="lowerLimit" placeholder="нижня границя"/> <br />
+								<input type="text" class="inputCoef" id="upperLimit" placeholder="верхня границя"/> <br />
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">вихід</button>
+								<button type="button" class="btn btn-primary" onClick="generateBtn()">зберегти</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				</legend>
+				<form name="parametrs">
+					<div class="param col-md-5">
+						<h4>Коефіцієнти:</h4>
+						<input type="text" class="inputCoef" id="firstParam" placeholder="перший" onBlur="regressionCoef()"/> <br />
+						<input type="text" class="inputCoef" id="secondParam" placeholder="другий" onBlur="regressionCoef()"/> <br />
+						<input type="text" class="inputCoef" id="thirdParam" placeholder="третій" onBlur="regressionCoef()"/> <br />
+						<input type="text" class="inputCoef" id="fourthParam" placeholder="четвертий" onBlur="regressionCoef()"/> <br />
+						<button type="button" class="btn btn-primary gen" onClick="generateBtn()">Генерувати нові значення (пробіл)</button>
+						<div class="labAnswer"><h3>Еталонне значення відгуку (<i>Y</i><sub>ет</sub>):</h3><h3 id="etalon"> -- </h3><br /> <h3>Точка, що задовольняє критерій оптимальності (-><i>Y</i><sub>ет</sub>):</h3> <h3 id="answer"> -- </h3></div>
+					</div>
+				</form>
+
+				<div id="mainTable" class="col-md-6">
+					<table class="numbered-equation" cellpadding="0" cellspacing="0">
+						<tr>
+							<td>
+								<h4> <i>Y</i> = <i id="a0">a<sub>0</sub></i> + 
+									<i id="a1">a<sub>1</sub></i>*<i>X</i><sub>1</sub> +
+									<i id="a2">a<sub>2</sub></i>*<i>X</i><sub>2</sub> + 
+									<i id="a3">a<sub>3</sub></i>*<i>X</i><sub>3</sub> </h4>
+							</td>
+						</tr>
+					</table>
+					<table class="table1 table table-hover" id="table1" cellpadding="0" cellspacing="0">
+
+					</table>
+				</div>
+				
+			</div>
+		</div>
+		<div class="theEnd col-md-8 col-md-offset-2">
+			<p class="text-center">Виконав студент групи ІО-33 <br> Закурений Андрій</p>
+		</div>
+		<script src="../js/script.js"></script>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.js"></script>
+	</body>
+</html>
