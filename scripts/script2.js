@@ -11,8 +11,6 @@ var y;
 var X =[[-1, 1, -1], [-1, -1, 1]];
 var p = 0.9;
 var tableFlag;
-var rows = 4;
-var cells = 3 + m;
 var table     = document.getElementById("table2");
 var tableBody = document.createElement("tbody");
 var valueOfCritRomanovsky=[[1.73, 2.16, 2.43, 2.62, 2.75, 2.9],
@@ -29,6 +27,7 @@ function onLoad(){
 }
 
 function main(){
+	m = 5;
 	fillMatrixY(yMin, yMax);
 	dispersion();
 }
@@ -72,7 +71,6 @@ function dispersion(){
 		sigma[i] = 0;
 		for (var j = 0; j < y[i].length; j++){
 			sigma[i] += Math.pow(y[i][j] - k[i], 2);
-			console.log("Math.pow(" + y[i][j] + " - " + k[i] + ", 2) = " + Math.pow(y[i][j] - k[i], 2));
 		}
 		sigma[i] = sigma[i] / m;
 		console.log("sigma" + i + " = " + sigma[i]);
@@ -139,10 +137,17 @@ function dispersion(){
 		//дисперсія однорідна
 		NormRegressionCoef();
 	} else {
-		m = m + 1;
 		console.log("дисперсія не однорідна");
-		//main();
+		moreY();
 	}
+}
+
+function moreY(){
+	m=m+1;
+	y[0] = y[0].concat(Math.random() * (yMax - yMin) + yMin); 
+	y[1] = y[1].concat(Math.random() * (yMax - yMin) + yMin);
+	y[2] = y[2].concat(Math.random() * (yMax - yMin) + yMin);
+	dispersion();
 }
 
 //Розрахунок нормованих коефіцієнтів рівняння регресії:
@@ -222,6 +227,18 @@ function NormRegressionCoef(){
     console.log(natY[0]);
     console.log(natY[1]);
     console.log(natY[2]);
+    document.getElementById("a0").innerHTML = a0.toFixed(3); 
+	document.getElementById("a1").innerHTML = a1.toFixed(3);
+	document.getElementById("a2").innerHTML = a2.toFixed(3);
+	document.getElementById("b0").innerHTML = b0.toFixed(3); 
+	document.getElementById("b1").innerHTML = b1.toFixed(3); 
+	document.getElementById("b2").innerHTML = b2.toFixed(3);
+	document.getElementById("outputB").innerHTML = 'Перевірка нормованих коефіцієнтів: </br> ' + b0.toFixed(3) + ' + ' + b1.toFixed(3) + ' * (-1)' + ' + ' + b2.toFixed(3) + ' * (-1) = ' + check1.toFixed(3) + '</br>'
+	+ b0.toFixed(3) + ' + ' + b1.toFixed(3) + ' * (1)' + ' + ' + b2.toFixed(3) + ' * (-1) = ' + check2.toFixed(3) + '</br>'
+	+ b0.toFixed(3) + ' + ' + b1.toFixed(3) + ' * (-1)' + ' + ' + b2.toFixed(3) + ' * (1) = ' + check3.toFixed(3) + '</br>';
+	document.getElementById("outputA").innerHTML = 'Перевірка натуралізованих коефіцієнтів: </br> ' + a0.toFixed(3) + ' + ' + a1.toFixed(3) + ' * ('+x1min.toFixed(3)+')' + ' + ' + a2.toFixed(3) + ' * ('+x2min.toFixed(3)+') = ' + natY[0].toFixed(3) + '</br>'
+	+ a0.toFixed(3) + ' + ' + a1.toFixed(3) + ' * ('+x1max.toFixed(3)+')' + ' + ' + a2.toFixed(3) + ' * ('+x2min.toFixed(3)+') = ' + natY[1].toFixed(3) + '</br>'
+	+ a0.toFixed(3) + ' + ' + a1.toFixed(3) + ' * ('+x1min.toFixed(3)+')' + ' + ' + a2.toFixed(3) + ' * ('+x2max.toFixed(3)+') = ' + natY[2].toFixed(3) + '</br>';
     
 }
 
@@ -229,10 +246,12 @@ function pChange(newP){
 	document.getElementById(p).className = "btn btn-default";
 	document.getElementById(newP).className = "btn btn-success";
 	p = newP;
-	main();
+	dispersion();
 }
 
 function fillTable(){
+	var rows = 4;
+	var cells = 3 + m;
 	if (tableFlag){
 		for(var j = 0; j < rows; j++) {
 			table.deleteRow(0);

@@ -16,7 +16,7 @@
 				<div class="col-md-8"><h3>Лабораторна робота №2</h3></div>
 				</div>
 				</legend>
-				<div class="col-md-2">
+				<div class="col-md-2" style="font-size:17px;">
 					<div class="panel panel-primary ">
 					  <div class="panel-heading">
 					    <h3 class="panel-title">Варіант</h3>
@@ -31,23 +31,33 @@
 					  </div>
 					</div>
 				</div>
-			
-				<label for="trustProbability">Довірча ймовірність р:</label>
-				<div class="btn-group" role="group" id="trustProbability">
-					<button type="button" class="btn btn-default" onClick="pChange(0.9)" id="0.9">0.90</button>
-					<button type="button" class="btn btn-default" onClick="pChange(0.95)" id="0.95">0.95</button>
-					<button type="button" class="btn btn-default" onClick="pChange(0.98)" id="0.98">0.98</button>
-					<button type="button" class="btn btn-default" onClick="pChange(0.99)" id="0.99">0.99</button>
+				<div class="">
+					<label for="trustProbability">Довірча ймовірність р:</label>
+					<div class="btn-group" role="group" id="trustProbability">
+						<button type="button" class="btn btn-default" onClick="pChange(0.9)" id="0.9">0.90</button>
+						<button type="button" class="btn btn-default" onClick="pChange(0.95)" id="0.95">0.95</button>
+						<button type="button" class="btn btn-default" onClick="pChange(0.98)" id="0.98">0.98</button>
+						<button type="button" class="btn btn-default" onClick="pChange(0.99)" id="0.99">0.99</button>
+					</div>
+					<button type="button" class="btn btn-primary" OnClick="main()" style="margin-left:20px;">провести експеримент</button>
 				</div>
-
-				<div class="col-md-6">
+			</br>
+				<div class="col-md-6 well">
 					<table class="numbered-equation1" cellpadding="0" cellspacing="0">
 						<tr>
 							<td>
-								<h4> <i>Y</i> = <i id="a0">a<sub>0</sub></i> + 
+								<h4>Рівняння з нормованими коефіцієнтами: </br><i>Y</i> = <i id="b0">a<sub>0</sub></i> + 
+									<i id="b1">a<sub>1</sub></i>*<i>X</i><sub>1</sub> +
+									<i id="b2">a<sub>2</sub></i>*<i>X</i><sub>2</sub> </h4>
+							</td>
+						</tr>
+					</table>
+					<table class="numbered-equation1" cellpadding="0" cellspacing="0">
+						<tr>
+							<td>
+								<h4>Рівняння з натуралізованими коефіцієнтами: </br><i>Y</i> = <i id="a0">a<sub>0</sub></i> + 
 									<i id="a1">a<sub>1</sub></i>*<i>X</i><sub>1</sub> +
-									<i id="a2">a<sub>2</sub></i>*<i>X</i><sub>2</sub> + 
-									<i id="a3">a<sub>3</sub></i>*<i>X</i><sub>3</sub> </h4>
+									<i id="a2">a<sub>2</sub></i>*<i>X</i><sub>2</sub> </h4>
 							</td>
 						</tr>
 					</table>
@@ -59,7 +69,11 @@
 				</div>
 				
 			</div>
-			<div id="output">
+			<div>
+				<div class="col-md-6" id="outputB">
+				</div>
+				<div class="col-md-6" id="outputA">
+				</div>
 			</div>
 		</div>
 		<div class="theEnd col-md-8 col-md-offset-2">
