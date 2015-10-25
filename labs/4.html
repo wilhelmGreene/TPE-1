@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Bootstrap -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/style.css" rel="stylesheet">
+		<!--<script data-main="scripts/main" src="../scripts/require.js"></script>-->
+	</head>
+	<body>
+		<div class="main col-md-8 col-md-offset-2">
+			<div>
+				<h1><a href="../index.html">Теорія планування експерименту</a></h1>
+				<legend>
+					<div class="row">
+						<div class="col-md-8">
+							<h3>Лабораторна робота №4</h3>
+							<h5>Проведення трьохфакторного експерименту</br>
+								при використанні рівняння регресії з урахуванням ефекту взаємодії.</h5>
+						</div>
+					</div>
+				</legend>
+				<div style="text-align:center;">
+					<table class="table2 table table-hover" id="table2" cellpadding="0" cellspacing="0">
+
+					</table>
+				</div>
+				<div class="well" onmouseover="mouseOverEq()" onmouseout="mouseOutEq()">
+					<table class="numbered-equation1"  cellpadding="0" cellspacing="0">
+						<tr>
+							<td id="equation">
+								<h4>Отримане рівняння регресії: </br><i>Y</i> = <i id="b0">b<sub>0</sub></i> + 
+									<i id="b1">b<sub>1</sub></i>*<i>X</i><sub>1</sub> +
+									<i id="b2">b<sub>2</sub></i>*<i>X</i><sub>2</sub> +
+									<i id="b3">b<sub>3</sub></i>*<i>X</i><sub>3</sub></h4>
+							</td>
+						</tr>
+					</table>
+				</div>				
+			</div>
+			<div class="well" id="outputKohren">
+			</div>
+			<div class="well" id="outputStudent">
+			</div>
+			<div class="well" id="outputFisher">
+			</div>
+
+		</div>
+		<div class="theEnd col-md-8 col-md-offset-2">
+			<p class="text-center">Виконав студент групи ІО-33 <br> Закурений Андрій</p>
+		</div>
+		<!--TODO: DELETE SCRIPT-->
+		<script src="../scripts/math.min.js"></script>
+		<script src="../scripts/script.js"></script>
+		<script src="../scripts/script4.js"></script>
+		<script src="../scripts/jquery.min.js"></script>
+		<script src="../scripts/bootstrap.js"></script>
+	</body>
+</html>

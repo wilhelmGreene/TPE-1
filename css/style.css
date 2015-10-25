@@ -2,12 +2,13 @@ html{
     height:100%;
 }
 body{
-	background-color:rgb(18,102,154);
+	background-image: url('../dark_geometric_@2X.png'); 
+	background-attachment: fixed;
 	height:100%;
 }
 .main{
 	margin-top: 20px;
-	background-color:rgba(255,255,255,0.9);
+	background-color:rgba(255,255,255,0.8);
 	min-height:90%;
 }
 
@@ -20,7 +21,6 @@ table.numbered-equation {
 	line-height: 2em;
 	background-color: rgba(96,163,184,0.5); 
 }
-
 table.numbered-equation1 { 
 	width:99%;  
 	text-align: center; 
@@ -74,4 +74,7 @@ td.equation-number {
 }
 .cellHighlight3{
 	background-color: rgb(216, 235, 216);
+}
+.eqCoef{
+	color:rgb(187,0,28);
 }
